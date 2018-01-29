@@ -23,21 +23,9 @@ public class BookingController {
     public Object getBookings(@RequestParam(value="id", defaultValue="1") String id) {
 
         // Use the ID to retrieve details from DB
-
- /*       DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDate localDate = LocalDate.now();
-        String creationDate = DateTimeFormatter.ofPattern("yyyy/MM/dd").format(localDate);
-        String creationTime = DateTimeFormatter.ofPattern("HH:mm:ss").format(localDate);
-        String location = "New Location";
-        String name = "UserNew";
-        String from = "2018/02/01";
-        String to = "2018/02/10";
-
-*/
-
         Booking booking = bookingRepository.findOne(id);
         if(booking == null){
-            return new Error("666", "Number of the Devil");
+            return new Error("404", "Desired booking could not be found");
         } else {
             return booking;
         }
