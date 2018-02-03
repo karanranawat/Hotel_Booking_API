@@ -14,6 +14,7 @@ public class BookingController {
     @Autowired
     BookingDetails bookingDetails;
 
+    @CrossOrigin(origins = "http://localhost:3004")
     @RequestMapping(value = "/booking/{id}", method = RequestMethod.GET)
     public Object getBookings(@PathVariable String id) {
         return bookingDetails.getBookingById(id);
